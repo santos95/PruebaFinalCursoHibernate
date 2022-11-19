@@ -19,7 +19,7 @@ public class PersonaBackBean implements Serializable {
     private String test = "Pantalla Prueba Curso Hibernate";
 
     private Persona persona;
-    //private List<Persona> listPersonas;
+
     private List<Persona> listPersonas;
 
     private PersonaServicio personaServicio;
@@ -41,7 +41,6 @@ public class PersonaBackBean implements Serializable {
     }
 
     public void agregar() {
-        System.out.println(persona);
         personaServicio.guardar(persona);
         persona = new Persona();
         this.init();
