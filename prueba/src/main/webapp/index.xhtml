@@ -1,0 +1,50 @@
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:h="http://java.sun.com/jsf/html">
+    <h:head>
+        <title>Eso es!</title>
+    </h:head>
+    <h:body>
+        <h2>Pantalla Prueba Curso Hibernate </h2>
+        <h:form id="frmPersona">
+            <div class="card">
+                <h3>Agregar Persona</h3>
+                <div class="ui-fluid">
+                    <div class="field">
+                        <p:outputLabel for="inpNombre" value="Nombre"/>
+                        <p:inputText id="inpNombre" required="true" value="#{personaBackBean.persona.nombre}"/>
+                    </div>
+                    <div class="field">
+                        <p:outputLabel for="inpApellido" value="Apellido"/>
+                        <p:inputText id="inpApellido" required="true" value="#{personaBackBean.persona.apellido}"/>
+                    </div>
+                    <div class="field col">
+                        <p:outputLabel for="inpEdad" value="Edad"/>
+                        <p:inputText id="inpEdad" required="true" value="#{personaBackBean.persona.edad}"/>
+                    </div>
+                </div>
+            </div>
+            <br/>
+            <p:commandButton id="btnAgregar"  update="frmPersona" value="Agregar" style="margin-right:20px;" action="#{personaBackBean.agregar()}"/>
+            <br/>
+            <h3>Listado de personas</h3>
+            <div class="card">
+                <p:dataTable var="persona" value="#{personaBackBean.listPersonas}">
+                    <p:column headerText="Id">
+                        <h:outputText value="#{persona.id}" />
+                    </p:column>
+                    <p:column headerText="Nombre">
+                        <h:outputText value="#{persona.nombre}" />
+                    </p:column>
+                    <p:column headerText="Apellido">
+                        <h:outputText value="#{persona.apellido}" />
+                    </p:column>
+                    <p:column headerText="Edad">
+                        <h:outputText value="#{persona.edad}" />
+                    </p:column>
+                </p:dataTable>
+            </div>
+        </h:form>
+    </h:body>
+</f:view>
